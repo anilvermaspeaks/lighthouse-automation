@@ -3,11 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        echo 'Checkout main branch'
-        checkout scm
-        dir('/') {
-          bat 'npm install'
-        }
+          sh 'npm install'
       }
     }
     stage('Build') {
