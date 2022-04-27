@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+        docker {
+            image 'node' 
+            args '-p 8080:8080' 
+        }
+    }
 
   stages {
     stage('INSTALL PACKAGES') {
