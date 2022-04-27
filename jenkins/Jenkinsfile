@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Checkout main branch'
         checkout scm
-        dir('webapp') {
+        dir('./') {
           bat 'npm install'
         }
       }
