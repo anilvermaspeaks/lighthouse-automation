@@ -18,7 +18,7 @@ pipeline {
         }
       }
     }
-    stage('Deploy') {
+    stage('Deploy Phase') {
       steps {
         echo 'Deploying....'
         ftpPublisher paramPublish: null, masterNodeName: '', alwaysPublishFromMaster: true, continueOnError: false, failOnError: true, publishers: [
