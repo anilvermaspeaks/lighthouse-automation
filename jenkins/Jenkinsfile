@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Checkout main branch'
         checkout scm
-        dir('./') {
+        dir('/') {
           bat 'npm install'
         }
       }
@@ -14,7 +14,7 @@ pipeline {
       steps {
         echo 'Building..'
         dir('webapp') {
-          bat 'npm run ng -- build --prod --baseHref=/webapp/ optimization=true'
+          bat 'npm run ng -- build --prod --baseHref=/ optimization=true'
         }
       }
     }
