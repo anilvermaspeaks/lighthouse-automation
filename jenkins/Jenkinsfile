@@ -11,7 +11,7 @@ pipeline {
     }
      stage('Reporting') {
       steps {
- echo new File(env.WORKSPACE, pomPath).getParent()
+ echo new File(env.WORKSPACE)
         echo "start building lighthouse"
          sh "node src/lighthouse/index.js && exit"
       }
