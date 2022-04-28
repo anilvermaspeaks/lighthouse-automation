@@ -11,8 +11,7 @@ pipeline {
     }
      stage('Reporting') {
       steps {
-         def pomPath = findFiles(glob: "**/config.js")[0].path
- echo new File(env.WORKSPACE, pomPath).getParent() +"\config.js"
+ echo new File(env.WORKSPACE, pomPath).getParent()
         echo "start building lighthouse"
          sh "node src/lighthouse/index.js && exit"
       }
