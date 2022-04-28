@@ -12,7 +12,8 @@ pipeline {
      stage('Reporting') {
       steps {
         echo "start building lighthouse"
-         sh "npm run start:light"
+         echo "${JENKINS_HOME}"
+         sh "node ${JENKINS_HOME}/workspace/automation1/src/lightHouse/index.js"
       }
     }
     stage('BUILD APP') {
@@ -23,3 +24,7 @@ pipeline {
      
   }
 }
+
+// workspace/automation1/src/lightHouse$
+// /var/jenkins_home/workspace/automation1/src/lighthouse/index.js
+// ./src/lighthouse/index.js
