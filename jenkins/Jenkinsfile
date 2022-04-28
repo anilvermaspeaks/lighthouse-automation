@@ -11,9 +11,8 @@ pipeline {
     }
      stage('Reporting') {
       steps {
-        echo "${env.HOME}"
         echo "start building lighthouse"
-         sh "node ../../../../../https://github.com/anilvermaspeaks/lighthouse-automation/tree/main/src/lightHouse/index.js && exit"
+         sh "node run start:light"
       }
     }
     stage('BUILD APP') {
