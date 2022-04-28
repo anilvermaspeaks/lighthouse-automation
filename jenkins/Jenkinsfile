@@ -9,16 +9,19 @@ pipeline {
         sh "npm install"
       }
     }
+     stage('Reporting') {
+      steps {
+         def pomPath = findFiles(glob: "**/config.js")[0].path
+ echo new File(env.WORKSPACE, pomPath).getParent() +"\config.js"
+        echo "start building lighthouse"
+         sh "node src/lighthouse/index.js && exit"
+      }
+    }
     stage('BUILD APP') {
       steps {
         sh "node_modules/.bin/ng build --prod"
       }
     }
-      stage('Reporting') {
-      steps {
-        echo "start building lighthouse"
-         sh "node src/lighthouse/index.js && exit"
-      }
-    }
+     
   }
 }
