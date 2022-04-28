@@ -9,10 +9,10 @@ pipeline {
         sh "npm install"
       }
     }
-    stage('TEST') {
+    stage('Reporting') {
       steps {
-        echo "start building lighthouse reporting"
-        sh "npm run start:light"
+        echo "start building lighthouse"
+         sh "node src/lighthouse/index.js && exit"
       }
     }
     stage('BUILD APP') {
