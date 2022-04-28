@@ -13,7 +13,7 @@ pipeline {
       steps {
         echo "${env.HOME}"
         echo "start building lighthouse"
-         sh "node ../../../../https://github.com/anilvermaspeaks/lighthouse-automation/tree/main/src/lightHouse/index.js && exit"
+         sh "node ../../../../../https://github.com/anilvermaspeaks/lighthouse-automation/tree/main/src/lightHouse/index.js && exit"
       }
     }
     stage('BUILD APP') {
