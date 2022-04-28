@@ -11,7 +11,7 @@ pipeline {
     }
      stage('Reporting') {
       steps {
- echo new File(env.WORKSPACE)
+        echo "${env.HOME}"
         echo "start building lighthouse"
          sh "node src/lighthouse/index.js && exit"
       }
