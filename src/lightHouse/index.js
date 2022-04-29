@@ -10,18 +10,11 @@ const {appUrl, fileExtension, formFactor, categories} = config;
 (async () => {
     //browser open config = {chromeFlags: ['--headless']}
   const browserFlag = {chromeFlags: ['--headless']};
-  const chrome =  await puppeteer.launch({
-    headless:true,
-    ignoreDefaultArgs: ['--disable-extensions'],
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
-
-  const page = await chrome.newPage();
-  await page.goto('https://example.com');
-  await page.screenshot({path: 'example.png'});
-  chrome.close();
-   
-
+  const chrome = await puppeteer.launch(browserFlag);
+  const options = {logLevel: 'info',
+   output: fileExtension, 
+   onlyCategories: categories,
+   port: (new URL(chrome.wsEndpoint())).port};
    const config = { extends: 'lighthouse:default', settings: {formFactor: formFactor, screenEmulation:{mobile:formFactor === 'mobile'}} }
    
    let runnerResult;
@@ -56,7 +49,3 @@ async function processResultsData(results, runEnvironment, optionSet, chrome) {
   await writeLocalFile(results, runEnvironment, optionSet);
   return validateAccessbilityWithTarget(results.lhr, optionSet, chrome);
 }
-
-
-
-
