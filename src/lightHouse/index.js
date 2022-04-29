@@ -1,5 +1,6 @@
 const lighthouse = require('lighthouse');
-const chromeLauncher = require('chrome-launcher');
+// const chromeLauncher = require('chrome-launcher');
+const puppeteer = require('puppeteer');
 const config = require('./config');
 const writeLocalFile = require('./writeDetailsToDir');
 const validateAccessbilityWithTarget = require('./validateAccessbilityWithTarget');
@@ -9,7 +10,7 @@ const {appUrl, fileExtension, formFactor, categories} = config;
 (async () => {
     //browser open config = {chromeFlags: ['--headless']}
   const browserFlag = {chromeFlags: ['--headless']};
-  const chrome = await chromeLauncher.launch(browserFlag);
+  const chrome = await puppeteer.launch(browserFlag);
   const options = {logLevel: 'info',
    output: fileExtension, 
    onlyCategories: categories,
@@ -27,7 +28,7 @@ const {appUrl, fileExtension, formFactor, categories} = config;
       }
 
   try {
-    await chrome.kill();
+    await chrome.close();
     process.exitCode = 1;
 
   }

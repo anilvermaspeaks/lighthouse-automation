@@ -1,6 +1,6 @@
 module.exports = {
 targetA11yScore : 95,
-appUrl : "http://localhost:4200",
+appUrl : "http://localhost:8080",
 fileExtension :'html', //json or html
 formFactor: 'desktop',  //mobile or desktop defaul,
 categories :['accessibility', 'seo']  //accessibility, best-practices, performance, pwa, seo
