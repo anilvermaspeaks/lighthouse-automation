@@ -10,11 +10,11 @@ const {appUrl, fileExtension, formFactor, categories} = config;
 (async () => {
     //browser open config = {chromeFlags: ['--headless']}
   const browserFlag = {chromeFlags: ['--headless']};
-  const chrome = await puppeteer.launch(browserFlag);
+  const chrome = await puppeteer.launch();
   const options = {logLevel: 'info',
    output: fileExtension, 
    onlyCategories: categories,
-   port: chrome.port};
+   port: (new URL(chrome.wsEndpoint())).port};
    const config = { extends: 'lighthouse:default', settings: {formFactor: formFactor, screenEmulation:{mobile:formFactor === 'mobile'}} }
    
    let runnerResult;

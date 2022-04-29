@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "start:light": "ng serve & node ./src/lighthouse/index.js && exit",
+    "start:light": "node ./src/lighthouse/index.js",
     "test": "ng test"
   },
   "private": true,

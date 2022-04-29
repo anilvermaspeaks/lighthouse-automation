@@ -7,14 +7,14 @@ const {targetA11yScore, formFactor} = config;
       if (formFactor === 'desktop') {
         if (accessibilityScore < targetA11yScore) {
           console.error(`Target accessibility score: ${targetA11yScore}, current accessibility score ${accessibilityScore}`);
-          chrome.kill();
+          chrome.close();
           process.exitCode = 1;
         }
       }
       if (formFactor === 'mobile') {
         if (accessibilityScore < targetA11yScore) {
           console.error(`Target accessibility score: ${targetA11yScore}, current accessibility score ${accessibilityScore}`);
-          chrome.kill();
+          chrome.close();
           process.exitCode = 1;
         }
       }
