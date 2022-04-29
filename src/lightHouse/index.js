@@ -12,6 +12,7 @@ const {appUrl, fileExtension, formFactor, categories} = config;
   const browserFlag = {chromeFlags: ['--headless']};
   const chrome =  await puppeteer.launch({
     headless:true,
+    executablePath: '/usr/bin/chromium-browser',
     ignoreDefaultArgs: ['--disable-extensions'],
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
