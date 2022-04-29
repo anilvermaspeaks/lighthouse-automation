@@ -9,13 +9,13 @@ pipeline {
         sh "npm install"
       }
     }
-    //  stage('Reporting') {
-    //   steps {
-    //     echo "start building lighthouse"
-    //      echo "${JENKINS_HOME}"
-    //      sh "node ${JENKINS_HOME}/workspace/automation1/src/lightHouse/index.js"
-    //   }
-    // }
+     stage('Reporting') {
+      steps {
+        echo "start building lighthouse"
+         echo "${JENKINS_HOME}"
+         sh "node ${JENKINS_HOME}/workspace/automation1/src/lightHouse/index.js"
+      }
+    }
     stage('BUILD APP') {
       steps {
         sh "node_modules/.bin/ng build --prod"
