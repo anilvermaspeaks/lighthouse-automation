@@ -10,7 +10,9 @@ const {appUrl, fileExtension, formFactor, categories} = config;
 (async () => {
     //browser open config = {chromeFlags: ['--headless']}
   const browserFlag = {chromeFlags: ['--headless']};
-  const chrome = await puppeteer.launch();
+  const chrome =  await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
   const options = {logLevel: 'info',
    output: fileExtension, 
    onlyCategories: categories,
