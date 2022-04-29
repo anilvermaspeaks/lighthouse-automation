@@ -15,11 +15,13 @@ const {appUrl, fileExtension, formFactor, categories} = config;
     ignoreDefaultArgs: ['--disable-extensions'],
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
+
   const page = await chrome.newPage();
-  const options = {logLevel: 'info',
-   output: fileExtension, 
-   onlyCategories: categories,
-   port: (new URL(chrome.wsEndpoint())).port};
+  await page.goto('https://example.com');
+  await page.screenshot({path: 'example.png'});
+  chrome.close();
+   
+
    const config = { extends: 'lighthouse:default', settings: {formFactor: formFactor, screenEmulation:{mobile:formFactor === 'mobile'}} }
    
    let runnerResult;
