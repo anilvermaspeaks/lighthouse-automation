@@ -15,6 +15,7 @@ const {appUrl, fileExtension, formFactor, categories} = config;
     ignoreDefaultArgs: ['--disable-extensions'],
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
+  const page = await chrome.newPage();
   const options = {logLevel: 'info',
    output: fileExtension, 
    onlyCategories: categories,
