@@ -13,7 +13,7 @@ pipeline {
       steps {
         echo "start building lighthouse"
          echo "${JENKINS_HOME}"
-         sh "ng serve & node ${JENKINS_HOME}/workspace/automation1/src/lightHouse/index.js"
+         sh "npm run start & node ${JENKINS_HOME}/workspace/automation1/src/lightHouse/index.js"
       }
     }
     stage('BUILD APP') {
